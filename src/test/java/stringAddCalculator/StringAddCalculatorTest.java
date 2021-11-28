@@ -45,8 +45,8 @@ public class StringAddCalculatorTest {
         result = StringAddCalculator.splitAndSum("1,2,3");
         assertThat(result).isEqualTo(6);
 
-        result = StringAddCalculator.splitAndSum("1:3");
-        assertThat(result).isEqualTo(4);
+        result = StringAddCalculator.splitAndSum("13:3");
+        assertThat(result).isEqualTo(16);
     }
 
     @Test
@@ -57,8 +57,10 @@ public class StringAddCalculatorTest {
     }
 
     @Test
-    @DisplayName("음수를 전달할 경우 RuntimeException 예외가 발생해야 한다.")
+    @DisplayName("숫자 이외의 값 또는 음수를 전달하는 경우 RuntimeException 예외가 발생해야 한다.")
     void splitAndSum_negative() {
         assertThrows(RuntimeException.class,() ->StringAddCalculator.splitAndSum("-1,2,3"));
+        assertThrows(RuntimeException.class,() ->StringAddCalculator.splitAndSum("가,2,3"));
+        assertThrows(RuntimeException.class,() ->StringAddCalculator.splitAndSum("a,2,3"));
     }
 }

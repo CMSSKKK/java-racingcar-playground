@@ -16,20 +16,22 @@ public class StringAddCalculator {
         if (isNullOrEmpty(input)) return ZERO;
 
         if (isBasicPattern(input)) {
-            String[] tokens = input.split(BASIC_REGEX);
-            return Arrays.stream(tokens).mapToInt(StringAddCalculator::stringToInt).sum();
+            return arraySum(input.split(BASIC_REGEX));
         }
 
         if (isCustomPattern(input)) {
             String customDelimiter = matcher.group(1);
             String[] tokens = matcher.group(2).split(customDelimiter);
-            return Arrays.stream(tokens).mapToInt(StringAddCalculator::stringToInt).sum();
+            return arraySum(tokens);
         }
 
         return stringToInt(input);
     }
 
     private static int stringToInt(String token) {
+        if (token.matches("(\\D+)")) {
+            throw new RuntimeException();
+        }
         int value = Integer.parseInt(token);
         if (value < ZERO) {
             throw new RuntimeException();
@@ -49,6 +51,10 @@ public class StringAddCalculator {
     private static boolean isCustomPattern(String text) {
         matcher = Pattern.compile(CUSTOM_REGEX).matcher(text);
         return matcher.find();
+    }
+
+    private static int arraySum(String[] tokens) {
+        return Arrays.stream(tokens).mapToInt(StringAddCalculator::stringToInt).sum();
     }
 
 }
