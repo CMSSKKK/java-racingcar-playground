@@ -29,7 +29,7 @@ public class Car {
     }
 
     public int move(int number) {
-        if(number > 3) {
+        if(isMovable(number)) {
             return this.position += 1;
         }
         return this.position;
