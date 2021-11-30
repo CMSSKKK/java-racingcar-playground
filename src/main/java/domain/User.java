@@ -1,6 +1,9 @@
 package domain;
 
+import utils.InputCheck;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class User {
     private ArrayList<Car> cars;
@@ -24,5 +27,13 @@ public class User {
 
     public int getTimes() {
         return this.times;
+    }
+
+    public void setRacingCars(String text) {
+        String[] arr = InputCheck.split(text);
+
+        for (String token : arr) {
+            this.cars.add(new Car(token));
+        }
     }
 }

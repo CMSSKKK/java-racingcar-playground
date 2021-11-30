@@ -21,6 +21,17 @@ public class UserTest {
     }
 
     @Test
+    @DisplayName("유저가 자동차들의 이름을 정한다.")
+    void user_choose_carNames() {
+        User user = new User();
+        user.setRacingCars("pobi,crong,honux");
+        ArrayList<Car> carList = user.getCarList();
+        Assertions.assertThat(carList.get(0).getName()).isEqualTo("pobi");
+        Assertions.assertThat(carList.get(1).getName()).isEqualTo("crong");
+        Assertions.assertThat(carList.get(2).getName()).isEqualTo("honux");
+    }
+
+    @Test
     @DisplayName("자동차의 이름은 5글자까지만 가능하다.")
     void user_choose_carName_5글자이하() {
         User user = new User();
