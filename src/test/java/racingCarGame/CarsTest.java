@@ -29,8 +29,22 @@ public class CarsTest {
         Cars cars = new Cars(arr);
         for (int i = 0; i < 5; i++) {
             cars.move();
-            System.out.println(Show.printRacingCarsBoard(cars));
+            Show.printRacingCarsBoard(cars);
         }
+
+
+    }
+
+    @Test
+    @DisplayName("자동차의 위치가 가장 큰 자동차 찾기")
+    void cars_find_winner() {
+        List<Car> arr = Arrays.asList(new Car("pobi"), new Car("crong"), new Car("honux"));
+        Cars cars = new Cars(arr);
+        for (int i = 0; i < 5; i++) {
+            cars.move();
+            Show.printRacingCarsBoard(cars);
+        }
+        List<String> winner = cars.findWinner();
 
 
     }
