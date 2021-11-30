@@ -7,16 +7,16 @@ import java.util.Scanner;
 
 public class RacingGame {
     private static final Scanner scanner = new Scanner(System.in);
-    private User user;
+    private static final User user = new User();;
+
     private Cars cars;
 
     public void start() {
         Show.printStart();
-        this.user = new User();
         user.setRacingCars(scanner.next());
         this.cars = new Cars(user.getCarList());
         Show.printHowManyTimes();
-        this.user.setTimes(scanner.nextInt());
+        user.setTimes(scanner.nextInt());
     }
 
     public void racing() {

@@ -2,6 +2,7 @@ package view;
 
 import domain.Car;
 import domain.Cars;
+import utils.InputCheck;
 
 import java.util.List;
 
@@ -48,13 +49,11 @@ public class Show {
 
     public static void printWinner(List<String> names) {
         StringBuilder stringBuilder = new StringBuilder();
-        int size = names.size();
-        if(names.size() > 1) {
-            for (int i = 0; i < size-1; i++) {
-                stringBuilder.append(names.get(i)).append(", ");
-            }
+        if(!InputCheck.isOne(names)) {
+            names.stream().filter(name -> names.indexOf(name)!= names.size()-1)
+                    .forEach(name ->stringBuilder.append(name).append(", "));
         }
-        stringBuilder.append(names.get(size-1));
+        stringBuilder.append(names.get(names.size()-1));
         stringBuilder.append("가 최종 우승했습니다.");
         System.out.println(stringBuilder.toString());
     }

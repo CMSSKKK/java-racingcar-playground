@@ -5,6 +5,9 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -33,6 +36,14 @@ public class UtilTest {
     void tokens_valid_check() {
         String text = "qwerty,crong,honux";
         assertThrows(IllegalArgumentException.class, ()-> InputCheck.split(text));
+    }
+
+    @Test
+    @DisplayName("list의 사이즈가 1초과하면 false, 1이면 true ")
+    void list_size_check() {
+        List<String> list = Arrays.asList("dfdf","dfsf");
+        assertThat(InputCheck.isOne(list)).isFalse();
+        assertThat(InputCheck.isOne(Arrays.asList("dfdf"))).isTrue();
     }
 
 }
