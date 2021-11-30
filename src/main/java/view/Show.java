@@ -11,12 +11,12 @@ public class Show {
     private static final String SYMBOL = "-";
 
     public static String printRacingCarStatus(Car car) {
-        return String.format("%s : %s",car.getName(),printCarPosition(car));
+        return String.format("%s : %s", car.getName(), printCarPosition(car));
     }
 
     public static String printCarPosition(Car car) {
         String position = "";
-        for (int i = 0; i <car.getPosition(); i++) {
+        for (int i = 0; i < car.getPosition(); i++) {
             position += SYMBOL;
         }
 
@@ -49,11 +49,11 @@ public class Show {
 
     public static void printWinner(List<String> names) {
         StringBuilder stringBuilder = new StringBuilder();
-        if(!InputCheck.isOne(names)) {
-            names.stream().filter(name -> names.indexOf(name)!= names.size()-1)
-                    .forEach(name ->stringBuilder.append(name).append(", "));
+        if (!InputCheck.isOne(names)) {
+            names.stream().filter(name -> names.indexOf(name) != names.size() - 1)
+                    .forEach(name -> stringBuilder.append(name).append(", "));
         }
-        stringBuilder.append(names.get(names.size()-1));
+        stringBuilder.append(names.get(names.size() - 1));
         stringBuilder.append("가 최종 우승했습니다.");
         System.out.println(stringBuilder.toString());
     }

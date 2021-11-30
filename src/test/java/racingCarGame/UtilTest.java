@@ -27,7 +27,7 @@ public class UtilTest {
     @DisplayName("나눠진 토큰들은 5자를 초과할 수 없다.")
     void token_valid_check() {
         String token = "qwerty";
-        assertThrows(IllegalArgumentException.class, ()-> InputCheck.validLength(token));
+        assertThrows(IllegalArgumentException.class, () -> InputCheck.validLength(token));
         assertThat(InputCheck.validLength("crong")).isTrue();
     }
 
@@ -35,13 +35,13 @@ public class UtilTest {
     @DisplayName("텍스트 내에 5자를 초과하는 토큰이 있을 경우 예외 처리")
     void tokens_valid_check() {
         String text = "qwerty,crong,honux";
-        assertThrows(IllegalArgumentException.class, ()-> InputCheck.split(text));
+        assertThrows(IllegalArgumentException.class, () -> InputCheck.split(text));
     }
 
     @Test
     @DisplayName("list의 사이즈가 1초과하면 false, 1이면 true ")
     void list_size_check() {
-        List<String> list = Arrays.asList("dfdf","dfsf");
+        List<String> list = Arrays.asList("dfdf", "dfsf");
         assertThat(InputCheck.isOne(list)).isFalse();
         assertThat(InputCheck.isOne(Arrays.asList("dfdf"))).isTrue();
     }

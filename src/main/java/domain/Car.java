@@ -12,12 +12,12 @@ public class Car {
     }
 
     public static int random() {
-        int number = new Random().nextInt(9)+1;
+        int number = new Random().nextInt(9) + 1;
         return number;
     }
 
     public static boolean isMovable(int randomNumber) {
-        return randomNumber>3;
+        return randomNumber > 3;
     }
 
     public String getName() {
@@ -29,18 +29,19 @@ public class Car {
     }
 
     public int move(int number) {
-        if(isMovable(number)) {
+        if (isMovable(number)) {
             return this.position += 1;
         }
         return this.position;
     }
 
     public void moveReal(int number) {
-        if(isMovable(number)) {
+        if (isMovable(number)) {
             this.position += 1;
         }
 
     }
+
     public void moveRandom() {
         moveReal(random());
     }
