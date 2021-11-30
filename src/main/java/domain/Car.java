@@ -35,5 +35,15 @@ public class Car {
         return this.position;
     }
 
+    public void moveReal(int number) {
+        if(isMovable(number)) {
+            this.position += 1;
+        }
+
+    }
+    public void moveRandom() {
+        moveReal(random());
+    }
+
 
 }

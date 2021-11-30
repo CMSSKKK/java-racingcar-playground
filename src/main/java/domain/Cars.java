@@ -12,4 +12,10 @@ public class Cars {
     public List<Car> getCars() {
         return this.cars;
     }
+
+    public void move() {
+        for (Car car : cars) {
+            car.moveRandom();
+        }
+    }
 }

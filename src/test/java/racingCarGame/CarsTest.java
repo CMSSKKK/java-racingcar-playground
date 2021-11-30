@@ -5,6 +5,7 @@ import domain.Cars;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import view.Show;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,6 +25,12 @@ public class CarsTest {
     @Test
     @DisplayName("랜덤값에따라서 각 car의 move 처리하기")
     void cars_move() {
+        List<Car> arr = Arrays.asList(new Car("pobi"), new Car("crong"), new Car("honux"));
+        Cars cars = new Cars(arr);
+        for (int i = 0; i < 5; i++) {
+            cars.move();
+            System.out.println(Show.printRacingCarsBoard(cars));
+        }
 
 
     }
