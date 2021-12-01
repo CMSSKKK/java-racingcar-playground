@@ -34,6 +34,10 @@ public class Car {
         return position.status();
     }
 
+    public Position getPosition() {
+        return this.position;
+    }
+
     public void move(int randomNo) {
         if(randomNo > STOP) {
             position.plusPosition();
