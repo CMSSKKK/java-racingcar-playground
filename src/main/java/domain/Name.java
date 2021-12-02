@@ -9,20 +9,25 @@ public class Name {
 
     public Name(String name) {
         validCheck(name);
-        this.name = name;
+        this.name = name.trim();
 
     }
 
+    public String carName() {
+        return this.name;
+    }
+
     public static boolean validCheck(String name) {
-        if(name == null || name.equals("")) {
+        if (name == null || name.equals("")) {
             throw new IllegalArgumentException("이름은 꼭 입력하셔야 합니다.");
         }
 
-        if(name.length() > MAX_LENGTH) {
+        if (name.length() > MAX_LENGTH) {
             throw new IllegalArgumentException("이름은 5자를 넘을 수 없습니다.");
         }
         return true;
     }
+
 
     @Override
     public boolean equals(Object o) {
@@ -36,4 +41,6 @@ public class Name {
     public int hashCode() {
         return Objects.hash(name);
     }
+
+
 }

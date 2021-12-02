@@ -19,23 +19,28 @@ public class Cars {
         List<Car> winners = new ArrayList<>();
 
         for (Car car : this.cars) {
-             if(car.getPosition().equals(getMaxPosition(this.cars))) {
-                 winners.add(car);
+            if (car.getPosition().equals(getMaxPosition(this.cars))) {
+                winners.add(car);
             }
 
         }
         return winners;
     }
 
+    public void move() {
+        cars.stream().forEach(Car::moveRandom);
+    }
+
     private static Position getMaxPosition(List<Car> cars) {
         Position maxPosition = new Position();
         for (Car car : cars) {
-            if(car.position() > maxPosition.status() ) {
+            if (car.intPosition() > maxPosition.intPosition()) {
                 maxPosition = car.getPosition();
             }
         }
         return maxPosition;
     }
+
 
     @Override
     public boolean equals(Object o) {

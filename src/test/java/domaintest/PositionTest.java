@@ -19,7 +19,7 @@ public class PositionTest {
     @DisplayName("Position 조회하기")
     void position_status() {
         Position position = new Position(5);
-        assertThat(position.status()).isEqualTo(5);
+        assertThat(position.intPosition()).isEqualTo(5);
     }
 
     @Test
@@ -27,6 +27,6 @@ public class PositionTest {
     void plusPosition() {
         Position position = new Position(5);
         position.plusPosition();
-        assertThat(position.status()).isEqualTo(6);
+        assertThat(position.intPosition()).isEqualTo(6);
     }
 }

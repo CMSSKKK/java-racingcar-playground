@@ -20,8 +20,8 @@ public class CarTest {
     void car_포지션_체크() {
         Car pobi = new Car("pobi",0);
         Car crong = new Car("crong",2);
-        assertThat(pobi.position()).isEqualTo(0);
-        assertThat(crong.position()).isEqualTo(2);
+        assertThat(pobi.intPosition()).isEqualTo(0);
+        assertThat(crong.intPosition()).isEqualTo(2);
     }
 
     @Test
@@ -31,8 +31,8 @@ public class CarTest {
         Car crong = new Car("crong",2);
         pobi.move(5);
         crong.move(5);
-        assertThat(pobi.position()).isEqualTo(1);
-        assertThat(crong.position()).isEqualTo(3);
+        assertThat(pobi.intPosition()).isEqualTo(1);
+        assertThat(crong.intPosition()).isEqualTo(3);
     }
 
     @Test
@@ -42,7 +42,7 @@ public class CarTest {
         Car crong = new Car("crong",2);
         pobi.move(3);
         crong.move(4);
-        assertThat(pobi.position()).isEqualTo(0);
-        assertThat(crong.position()).isEqualTo(3);
+        assertThat(pobi.intPosition()).isEqualTo(0);
+        assertThat(crong.intPosition()).isEqualTo(3);
     }
 }

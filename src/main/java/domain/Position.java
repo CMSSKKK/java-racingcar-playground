@@ -14,7 +14,7 @@ public class Position {
         this.position = position;
     }
 
-    public int status() {
+    public int intPosition() {
         return this.position;
     }
 
@@ -34,7 +34,6 @@ public class Position {
     public int hashCode() {
         return Objects.hash(position);
     }
-
 
 
 }
